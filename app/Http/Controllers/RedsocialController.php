@@ -32,6 +32,10 @@ class RedsocialController extends Controller
             ->get()
             ;
 
+        if(!Auth::user()) {
+            return redirect('login');
+        }
+
         return view('home.home', [
             'comentarios' => $comentarios,
         ]);
